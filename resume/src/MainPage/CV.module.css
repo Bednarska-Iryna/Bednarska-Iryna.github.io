@@ -29,7 +29,6 @@
     font-size: 32px;
     text-transform: uppercase;
     color: black;
-    margin: 0px;
 }
 
 .right {
@@ -40,9 +39,9 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 7%;
+    top: 13%;   
     padding-right: 30px;
-    margin-top: 75px;
+    
 }
 
 .cube {
@@ -60,7 +59,7 @@
 
 .content {
     padding: 20px;
-    margin-top: 8%;
+    margin-top: 2%;
 }
 
 h1 {
@@ -87,15 +86,14 @@ p {
     font-weight: normal;
     color: #26252d;
     font-family: arial;
-    letter-spacing: 10px;
-    margin: 7px;
+    letter-spacing: 10px;    
 }
 
 .ma {
     font-family: 'Raleway' !important;
     margin: 0px;
     padding: 0px;
-    margin-bottom: -11px !important;
+    margin-bottom: -17px !important;
 }
 
 .hr1 {
@@ -105,11 +103,11 @@ p {
     width: 61%;
     border: none;
     right: 0px;
-    top: 12%;
+    top: 13%;
 }
 
 .rightContent {
-    margin-top: 50px;
+    margin-top: 3%;
 }
 
 .head {
@@ -186,7 +184,7 @@ p {
 
 .focus {
     cursor: pointer;
-    margin-top: 30%;
+    margin-top: 53%;
 }
 
 .firstWrapper, .secondWrapper {

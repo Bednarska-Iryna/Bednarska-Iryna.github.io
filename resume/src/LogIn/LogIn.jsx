@@ -10,8 +10,8 @@ const LogIn = ()=>{
           </div>
            <div className={style.right}> <SignIn/></div>
           </div>
-{/*   
-        <Link to={`${AppRedirectRoutes.CV}${AppRedirectRoutes.FIREBASE}${AppRoutes.LOGIN}`}>
+
+        {/* <Link to={`${AppRedirectRoutes.CV}${AppRedirectRoutes.FIREBASE}${AppRoutes.LOGIN}`}>
           <span style={{ fontSize: "50px" }}>Sign In</span>
         </Link>
         <Link to={`${AppRedirectRoutes.CV}${AppRedirectRoutes.FIREBASE}${AppRoutes.SIGN_UP}`}>
@@ -23,7 +23,7 @@ const LogIn = ()=>{
           <Route path={AppRoutes.SIGN_UP} element={<SignUp page={EnterTypes.SIGN_UP}/>}/>
            
         </Routes>
-      <br/> <br/> <br/> <br/> <br/> */}
+      */}
 
 
 

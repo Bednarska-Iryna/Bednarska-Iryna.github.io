@@ -1,5 +1,8 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { AppRoutes, AppRedirectRoutes } from "../Route/Routes"
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { AppRoutes, AppRedirectRoutes } from "../Route/AppRoutes";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RedirectRoutes } from "../../../common/Routes";
@@ -10,9 +13,9 @@ const SignUp = ({ page }) => {
   const [formValue, setFormValue] = useState("email", "password");
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
-  useEffect (()=>{
-    return()=>setSuccess(false)
-  }, [])
+  useEffect(() => {
+    return () => setSuccess(false);
+  }, []);
   const handleSignUp = async () => {
     try {
       const user = await createUserWithEmailAndPassword(
@@ -20,12 +23,12 @@ const SignUp = ({ page }) => {
         formValue.email,
         formValue.password
       );
-      setSuccess((prevState)=>!prevState);
-      setTimeout( () => { 
-        setSuccess((prevState)=>!prevState);
-        setFormValue("email", "password") 
-        navigate (`${AppRedirectRoutes.CV}${AppRoutes.LOGIN}`)}, 3000)
-
+      setSuccess((prevState) => !prevState);
+      setTimeout(() => {
+        setSuccess((prevState) => !prevState);
+        setFormValue("email", "password");
+        navigate(`${AppRedirectRoutes.CV}${AppRoutes.LOGIN}`);
+      }, 3000);
     } catch (e) {
       console.log(e);
     } finally {
@@ -40,11 +43,11 @@ const SignUp = ({ page }) => {
       );
       localStorage.setItem("user", JSON.stringify(user));
       setSuccess(true);
-      setTimeout( () => { 
-        setSuccess((prevState)=>!prevState);
-        setFormValue("email", "password") 
-        navigate (`${RedirectRoutes.Iryna}${MyRoutes.CV}`)}, 3000)
-
+      setTimeout(() => {
+        setSuccess((prevState) => !prevState);
+        setFormValue("email", "password");
+        navigate(`${RedirectRoutes.Iryna}${MyRoutes.CV}`);
+      }, 3000);
     } catch (e) {
       console.log(e);
     } finally {
@@ -77,7 +80,11 @@ const SignUp = ({ page }) => {
             />
           </form>
           <br />
-          <button onClick={page === EnterTypes.SIGN_UP ? handleSignUp:handleSignIn}>{page}</button>
+          <button
+            onClick={page === EnterTypes.SIGN_UP ? handleSignUp : handleSignIn}
+          >
+            {page}
+          </button>
         </>
       ) : (
         <h1>SUCCESS</h1>
