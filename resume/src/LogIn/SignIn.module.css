@@ -1,0 +1,12 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+h2 {
+    color:#d4c138;
+    font-size: 45px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgb(220, 221, 126);    
+}

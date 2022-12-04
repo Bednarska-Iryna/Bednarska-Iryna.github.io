@@ -1,0 +1,46 @@
+.page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(circle at -14.09% 79.88%, #ff92f7 0, #ff8ce7 3.85%, #ff88d6 7.69%, #ff86c4 11.54%, #ff86b3 15.38%, #ff87a2 19.23%, #ff8a92 23.08%, #ff8f82 26.92%, #ff9473 30.77%, #ff9a65 34.62%, #ffa158 38.46%, #ffa84d 42.31%, #ffaf43 46.15%, #f2b53c 50%, #e3bb38 53.85%, #d4c138 57.69%, #c3c63c 61.54%, #b2ca43 65.38%, #9fce4d 69.23%, #8bd259 73.08%, #74d566 76.92%, #59d775 80.77%, #31da85 84.62%, #00db96 88.46%, #00dca8 92.31%, #00ddba 96.15%, #00decb 100%);
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 70px;
+    text-shadow: 1px 1px 2px orange, 0 0 30px whitesmoke, 0 0 5px orange;
+
+    /* font-size: 70px;
+    color: #fff;
+    letter-spacing: 5px;
+    font-weight: 700;    
+    animation: blur .9000s ease-out infinite;
+    text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff;
+ }
+  
+  @keyframes blur {
+    from {
+      text-shadow:0px 0px 2px #fff,
+        0px 0px 5px #fff, 
+        0px 0px 10px #fff,
+        0px 0px 10px #fff,
+        0px 0px 10px #fff,
+        0px 0px 15px #fff,
+        0px 0px 15px #fff,
+        0px 0px 20px #fff,
+        0px 0px 20px #fff,
+        0px 0px 20px #fff,
+        0px 0px 20px #7B96B8,
+        0px 0px 25px #7B96B8,
+        0px 5px 20px #7B96B8,
+        0px 5px 20px #7B96B8,
+        0px 5px 20px #7B96B8,
+        0px 5px 20px #7B96B8,
+        0px -5px 20px #7B96B8,
+        0px -5px 20px #7B96B8;
+    } */
+}
