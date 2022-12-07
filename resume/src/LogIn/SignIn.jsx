@@ -3,34 +3,39 @@ import { AppRoutes, AppRedirectRoutes } from "../Route/AppRoutes";
 import { Button, ButtonToolbar } from "rsuite";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { auth } from "./firebase";
+import { auth} from "./firebase";
+import {signInWithEmailAndPassword } from "firebase/auth";
+
 import style from "./LogIn.module.css";
 const SignIn = () => {
-  // const [formValue, setFormValue] = useState("email", "password");
+  const [formValue, setFormValue] = useState("email", "password");
   const [success, setSuccess] = useState(false);
-  // const navigate = useNavigate();
-  // const handleSignUp = async () => {
-  //   try {
-  //     const user = await createUserWithEmailAndPassword(
-  //       auth,
-  //       formValue.email,
-  //       formValue.password
-  //     );
-  //     localStorage.setItem("user", JSON.stringify(user));
-  //     setSuccess(true)
-  //     setTimeout (()=>navigate(`${AppRedirectRoutes.CV}${AppRoutes.LOGIN}`), 3000)
-  //   } catch (e) {
-  //       console.log(e)
-  //   } finally {
-  //   }
-  // };
-  // const handleChange = (event, key) => {
-  //   setFormValue({
-  //     ...formValue,
-  //     [key]: event.target.value,
-  //   });
-  // };
-  // console.log(formValue);
+  const navigate = useNavigate();
+  const handleSignIn = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        formValue.email,
+        formValue.password
+      );
+      localStorage.setItem("user", JSON.stringify(user));
+      setSuccess(true);
+      setTimeout( () => { 
+        setSuccess((prevState)=>!prevState);
+        setFormValue("email", "password") 
+        navigate (AppRoutes.ADMIN)}, 1000)
+        
+    } catch (e) {
+      console.log(e);
+    } finally {
+    }
+  };
+  const handleChange = (event, key) => {
+    setFormValue({
+      ...formValue,
+      [key]: event.target.value,
+    });
+  };
   return (
     <div className={style.box}>
       <h2>Sign In</h2>
@@ -43,8 +48,8 @@ const SignIn = () => {
             <br />
             <input
               type="email"
-              // value={formValue.email}
-              // onChange={(event) => handleChange(event, "email")}
+              value={formValue.email}
+              onChange={(event) => handleChange(event, "email")}
             />
             <br />
             <br />
@@ -53,14 +58,14 @@ const SignIn = () => {
             <br />
             <input
               type="password"
-              // value={formValue.password}
-              // onChange={(event) => handleChange(event, "password")}
+              value={formValue.password}
+              onChange={(event) => handleChange(event, "password")}
             />
           </form>
           <br />
           {/* <button onClick={handleSignUp}>Login</button> */}
           <ButtonToolbar>
-            <Button color="cyan" size="lg" appearance="primary">
+            <Button color="cyan" size="lg" appearance="primary" onClick={handleSignIn}>
               Submit
             </Button>
           </ButtonToolbar>

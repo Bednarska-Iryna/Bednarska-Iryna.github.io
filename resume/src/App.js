@@ -8,6 +8,7 @@ import LogIn from "./LogIn/LogIn";
 import "rsuite/dist/rsuite.min.css";
 import "./common/Overrides-rsuite.css";
 import PrivateRoute from "./HOC/PrivateRoute";
+import Admin from "./Admin/AdminPage";
 
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
         <Route path={AppRoutes.MAIN_PAGE} element={<CV />} />
         <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
         <Route path={AppRoutes.LOGIN} element={<LogIn />} />
+        <Route path={AppRoutes.ADMIN} element={<Admin/>} />
         <Route path={"*"} element={<NotFoundPage />} />
+        
         {/* <Route element={<PrivateRoute isAllowed={user?.role === "admin"} />}>
           <Route path={AppRoutes.ADMIN} element={<AdminPage/>} />
         </Route> */}
