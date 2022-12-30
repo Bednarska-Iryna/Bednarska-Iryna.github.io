@@ -16,7 +16,7 @@ const CV = () => {
   return (
     <div className={styles.box}>
       <Navbar />
-      <div id="Home" className={styles.container}>
+      <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.profile}>
             <img
@@ -26,7 +26,7 @@ const CV = () => {
             />
           </div>
           <div className={styles.content}>
-            <h1 id="About">About me</h1>
+            <h1>About me</h1>
             <p>
               After finishing my studies in Logos Front-end Academy, I'm looking
               for a job in IT to start my career. I want to use my skills in
@@ -42,7 +42,7 @@ const CV = () => {
             </p>
             <br />
             <div className={styles.focus}>
-              <h1 id="Contact">Contact</h1>
+              <h1>Contact</h1>
               <p>
                 <i class="fa fa-map"></i> &nbsp;Lviv,Ukraine{" "}
               </p>
@@ -106,7 +106,7 @@ const CV = () => {
             </div>
 
             <div className={styles.rightContent}>
-              <h1 id="Skills" className={styles.head}>
+              <h1 className={styles.head}>
                 Skills
               </h1>
               <hr className={styles.hr2} />

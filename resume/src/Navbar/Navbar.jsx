@@ -11,13 +11,15 @@ const Navbar = () => {
       navigate (AppRoutes.LOGIN)
     )
   }
+  const nav1 = ()=> {
+    return(
+      navigate (AppRoutes.MAIN_PAGE)
+    )
+  }
   return (
     <div className={styles.navbar}>
       <div className={styles.nav}>    
-        <div className={styles.a}><a href="#Home">Home</a></div>
-        <div className={styles.a}> <a href="#About">About</a></div>
-        <div className={styles.a}><a href="#Skills">Skills</a></div>
-        <div className={styles.a}><a href="#Contact">Contact</a></div> 
+      <div className={styles.a} onClick={nav1}><a>Home</a></div>       
         <div className={styles.a} onClick={nav}><a>Login</a></div> 
               
       </div>    

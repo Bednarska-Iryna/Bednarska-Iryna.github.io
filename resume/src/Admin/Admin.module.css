@@ -71,17 +71,15 @@ h1 {
 
 .btn {    
     color: whitesmoke;
-    font-size: small;
-    width: 20%;
-    /* background-color: aqua;  */
-    margin-left: 255px;    
+    font-size: 20px;
+    width: 15%;
+    height: 40px;
+    background-color: #31da85;
+    margin-left: 1330px;
+    margin-bottom: 100px;
 }
-.btn1 {    
-    color:black;
-    font-size: small;
-    width: 20%;   
-    margin-left: 700px;    
-}
+
+
 
 .txt {
     color: #96969f;
@@ -100,8 +98,10 @@ h1 {
     letter-spacing: 1px;
     line-height: 27px;
     width: 100%;
-    height: 170px;
-    
+    height: 170px;    
+}
+.cnt_tx{
+
 }
 .intro {
     text-align: center;
@@ -147,29 +147,48 @@ h1 {
 }
 
 .para {
-    font-size: 23px;
+    font-size: 15px;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.911);
     font-weight: 500;   
     position: relative;
     width: 100%;
-    height: 60px;
+    height: 50px;
 }
 .para1 {
-    height: 50px;
-    font-size: 20px;    
+    height: 35px;
+    font-size: 16px;    
     color: rgba(0, 0, 0, 0.911);
     font-weight: 500;   
     position: relative;
     width: 100%;
+    /* top:20px; */
 }
 .para2 {
     height: 20px;
-    font-size: 20px;    
+    font-size: 18px;    
     color: rgba(0, 0, 0, 0.911);
     font-weight: 800;   
     position: relative;
     width: 100%;
+    /* top:20px; */
+}
+.para3{
+    height: 40px;
+    font-size: 16px;    
+    color: whitesmoke;
+    font-weight: 700;   
+    position: relative;
+    width: 100%;
+}
+.para4 {
+    height: 45px;
+    font-size: 25px;    
+    color: rgba(0, 0, 0, 0.911);
+    font-weight: 800;   
+    position: relative;
+    width: 100%;
+    text-align: center;
 }
 .p25 {
     color: black;
