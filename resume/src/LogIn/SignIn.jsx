@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth} from "./firebase";
 import {signInWithEmailAndPassword } from "firebase/auth";
+import Navbar from "../Navbar/Navbar";
 
 import style from "./LogIn.module.css";
 const SignIn = () => {
@@ -18,7 +19,7 @@ const SignIn = () => {
         formValue.email,
         formValue.password
       );
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify({user: "Iryna", role: "admin"}))
       setSuccess(true);
       setTimeout( () => { 
         setSuccess((prevState)=>!prevState);
@@ -37,8 +38,11 @@ const SignIn = () => {
     });
   };
   return (
-    <div className={style.box}>
-      <h2>Sign In</h2>
+   
+
+   <div className={style.box}>
+       
+            <h2>Sign In</h2>
       <br />
       <br />
       {!success ? (
@@ -74,6 +78,8 @@ const SignIn = () => {
         <h1>SUCCESS</h1>
       )}
     </div>
+  
+    
   );
 };
 export default SignIn;

@@ -3,8 +3,10 @@ import SignIn from "./SignIn";
 import Navbar from "../Navbar/Navbar";
 const LogIn = ()=>{
     return(
-        <div className={style.page}>          
+        <div className={style.page}>   
+           <Navbar/>       
           <div className={style.container}>
+
           <div className={style.left}>
             <div className={style.area}>Welcome!</div> 
          

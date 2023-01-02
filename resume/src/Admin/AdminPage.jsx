@@ -28,7 +28,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 
-const Admin = () => {
+const AdminPage = () => {
   const [editID, setEditID] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const [users, setUsers] = useState([]);
@@ -87,14 +87,6 @@ const Admin = () => {
     });
   };
 
-  // const addInfo = async () => {
-  //   try {
-  //     const docRef = await addDoc(collectionRef, formValues);
-  //     console.log(docRef);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
   const getInfo = () => {
     onSnapshot(collectionRef, (snapshot) => {
       setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -103,11 +95,8 @@ const Admin = () => {
   useEffect(() => {
     getInfo();
   }, []);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // addInfo();
-  };
-  const handleEdit = (user) => {
+
+  const handleEdit = (user) => {   
     if (user.id === editID) {
       editUser(editFormValues);
       setEditID("");
@@ -119,12 +108,7 @@ const Admin = () => {
   const editUser = async (user) => {
     const docRef = doc(db, "users", user.id);
     try {
-      await setDoc(docRef, {
-        firstname: user.firstname,
-        secondtname: user.name,
-        image: user.image,
-        imageName: user.imageName,
-      });
+      await setDoc(docRef, user);
     } catch (e) {
       console.log(e);
     }
@@ -151,8 +135,9 @@ const Admin = () => {
           setIsDisabled((prevState) => !prevState);
         });
       }
-    );
+    );   
   };
+  console.log(users);
   return (
     <div>
       {users?.length > 0 &&
@@ -169,7 +154,7 @@ const Admin = () => {
                           <>
                             <img
                               src={item.image}
-                              alt=""
+                              alt={item.imageName}
                               style={{                              
                                 backgroundSize: "cover",
                                 width: "100%",
@@ -644,7 +629,9 @@ const Admin = () => {
               className={styles.btn}
               disabled={editID === item.id && isDisabled}
               onClick={() => handleEdit(item)}
+
             >
+
               {editID !== item.id ? "Edit" : "Save"}
             </button>
           </div>
@@ -652,4 +639,4 @@ const Admin = () => {
     </div>
   );
 };
-export default Admin;
+export default AdminPage;
