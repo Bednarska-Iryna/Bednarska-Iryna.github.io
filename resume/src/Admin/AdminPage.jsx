@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import React from "react";
 import styles from ".//Admin.module.css";
 import Navbar from "../Navbar/Navbar";
+import {getData} from "../Redux/dataSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCss3,
@@ -27,8 +28,10 @@ import {
   setDoc,
   onSnapshot,
 } from "firebase/firestore";
+import { useAppDispatch } from "../Redux/store";
 
 const AdminPage = () => {
+  const dispatch = useAppDispatch();
   const [editID, setEditID] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const [users, setUsers] = useState([]);
@@ -90,13 +93,17 @@ const AdminPage = () => {
   const getInfo = () => {
     onSnapshot(collectionRef, (snapshot) => {
       setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      dispatch(
+        getData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      );
+
     });
   };
   useEffect(() => {
     getInfo();
   }, []);
 
-  const handleEdit = (user) => {   
+  const handleEdit = (user) => {
     if (user.id === editID) {
       editUser(editFormValues);
       setEditID("");
@@ -135,7 +142,7 @@ const AdminPage = () => {
           setIsDisabled((prevState) => !prevState);
         });
       }
-    );   
+    );
   };
   console.log(users);
   return (
@@ -155,7 +162,7 @@ const AdminPage = () => {
                             <img
                               src={item.image}
                               alt={item.imageName}
-                              style={{                              
+                              style={{
                                 backgroundSize: "cover",
                                 width: "100%",
                               }}
@@ -296,12 +303,9 @@ const AdminPage = () => {
                   <div id="Home" className={styles.container}>
                     <div className={styles.left}>
                       <div className={styles.profile}>
-                        <input
-                          type="file"
-                          onChange={handleUpload}                         
-                        />
+                        <input type="file" onChange={handleUpload} />
                         <img
-                          style={{ backgroundSize: "cover", width: "100%"}}
+                          style={{ backgroundSize: "cover", width: "100%" }}
                           src={editFormValues?.image}
                           alt="photo"
                         />
@@ -432,14 +436,13 @@ const AdminPage = () => {
                               })
                             }
                           />
-                        </div>                        
+                        </div>
                         <div className={styles.rightContent}>
                           <h1 className={styles.head}>Education</h1>
                           <hr className={styles.hr2} />
                           <div className={styles.clearfix}></div>
-                          <p className={styles.para}>                  
-                            
-                          <strong>                              
+                          <p className={styles.para}>
+                            <strong>
                               <input
                                 className={styles.para2}
                                 type="number"
@@ -474,7 +477,6 @@ const AdminPage = () => {
                                 })
                               }
                             />
-                
                           </p>
                           <p className={styles.par}>
                             <textarea
@@ -502,7 +504,9 @@ const AdminPage = () => {
                             />
                           </p>
                           <p className={styles.para}>
-                            <strong> <input
+                            <strong>
+                              {" "}
+                              <input
                                 className={styles.para2}
                                 type="number"
                                 value={editFormValues.years3}
@@ -512,7 +516,8 @@ const AdminPage = () => {
                                     years3: e.target.value,
                                   })
                                 }
-                              /></strong>
+                              />
+                            </strong>
                           </p>
                           <textarea
                             className={styles.para1}
@@ -527,7 +532,7 @@ const AdminPage = () => {
                           />
                           <p className={styles.para}>
                             <strong>
-                            <input
+                              <input
                                 className={styles.para2}
                                 type="number"
                                 value={editFormValues.years4}
@@ -538,7 +543,7 @@ const AdminPage = () => {
                                   })
                                 }
                               />
-                               <input
+                              <input
                                 className={styles.para2}
                                 type="number"
                                 value={editFormValues.years5}
@@ -619,7 +624,7 @@ const AdminPage = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className={styles.cube2}></div>
                   </div>
                 </div>
@@ -629,9 +634,7 @@ const AdminPage = () => {
               className={styles.btn}
               disabled={editID === item.id && isDisabled}
               onClick={() => handleEdit(item)}
-
             >
-
               {editID !== item.id ? "Edit" : "Save"}
             </button>
           </div>
