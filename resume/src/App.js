@@ -25,12 +25,12 @@ function App() {
         <Route path={AppRoutes.LOGIN} element={<LogIn />} />
         <Route path={AppRoutes.ADMIN} element={<AdminPage/>} />
        
-        {user.role === "admin" ? <Route path={AppRoutes.ADMIN} element={<AdminPage/>} /> :  <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />}
+        {/* {user.role === "admin" ? <Route path={AppRoutes.ADMIN} element={<AdminPage/>} /> :  <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />} */}
         {/* <Route element={<PrivateRoute isAllowed={user?.role==="admin"}/>}>
                             <Route path={AppRoutes.ADMIN} element={<AdminPage />} />
                         </Route> */}
         {/* //   <Route path={"*"} element={<NotFoundPage />} /> */}
-        //
+        
       </Routes>
     </div>
   );
