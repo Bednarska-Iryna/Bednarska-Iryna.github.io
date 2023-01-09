@@ -13,7 +13,7 @@ import AdminPage from "./Admin/AdminPage";
 function App() {
   const user = JSON.parse(localStorage.getItem("user"));
   
-  console.log(user)
+  // console.log(user)
   useEffect(()=>{
       localStorage.setItem("user", JSON.stringify({user: "Iryna", role: ""}))
   },[])
@@ -25,7 +25,7 @@ function App() {
         <Route path={AppRoutes.LOGIN} element={<LogIn />} />
         <Route path={AppRoutes.ADMIN} element={<AdminPage/>} />
        
-        {user.role === "admin" ? <Route path={AppRoutes.ADMIN} element={<AdminPage/>} /> :  <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />}
+        {/*{user.role === "admin" ? <Route path={AppRoutes.ADMIN} element={<AdminPage/>} /> :  <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />}*/}
         {/* <Route element={<PrivateRoute isAllowed={user?.role==="admin"}/>}>
                             <Route path={AppRoutes.ADMIN} element={<AdminPage />} />
                         </Route> */}

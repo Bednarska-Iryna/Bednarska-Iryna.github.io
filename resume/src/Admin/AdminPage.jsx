@@ -28,10 +28,11 @@ import {
   setDoc,
   onSnapshot,
 } from "firebase/firestore";
-import { useAppDispatch } from "../Redux/store";
+import {useAppDispatch, useTypedSelector} from "../Redux/store";
 
 const AdminPage = () => {
   const dispatch = useAppDispatch();
+  const userFromRedux = useTypedSelector(state => state.data.users);
   const [editID, setEditID] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const [users, setUsers] = useState([]);
@@ -92,11 +93,11 @@ const AdminPage = () => {
 
   const getInfo = () => {
     onSnapshot(collectionRef, (snapshot) => {
+      const data = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       dispatch(
         getData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       );
-
     });
   };
   useEffect(() => {
@@ -144,11 +145,11 @@ const AdminPage = () => {
       }
     );
   };
-  console.log(users);
+  console.log(userFromRedux);
   return (
     <div>
-      {users?.length > 0 &&
-        users?.map((item) => (
+      {userFromRedux?.length > 0 &&
+          userFromRedux?.map((item) => (
           <div key={item.id}>
             {editID !== item.id ? (
               <>

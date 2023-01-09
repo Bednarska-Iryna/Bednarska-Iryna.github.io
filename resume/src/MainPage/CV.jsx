@@ -44,13 +44,13 @@ const CV = () => {
             <div className={styles.focus}>
               <h1>Contact</h1>
               <p>
-                <i class="fa fa-map"></i> &nbsp;Lviv,Ukraine{" "}
+                <i className="fa fa-map"></i> &nbsp;Lviv,Ukraine{" "}
               </p>
               <p>
-                <i class="fa fa-phone"></i> &nbsp;phone +380980546109
+                <i className="fa fa-phone"></i> &nbsp;phone +380980546109
               </p>
               <p>
-                <i class="fa fa-envelope"></i> &nbsp;email :
+                <i className="fa fa-envelope"></i> &nbsp;email :
                 bednarska.ira.2000@gmail.com
               </p>
             </div>
