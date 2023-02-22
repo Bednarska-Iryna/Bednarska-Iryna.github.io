@@ -1,11 +1,10 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { AppRoutes, AppRedirectRoutes } from "../Route/AppRoutes";
+import { AppRoutes } from "../Route/AppRoutes";
 import { Button, ButtonToolbar } from "rsuite";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth} from "./firebase";
-import {signInWithEmailAndPassword } from "firebase/auth";
-
+import { auth } from "./firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 import style from "./LogIn.module.css";
 const SignIn = () => {
@@ -19,13 +18,17 @@ const SignIn = () => {
         formValue.email,
         formValue.password
       );
-      localStorage.setItem("user", JSON.stringify({user: "Iryna", role: "admin"}))
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ user: "Iryna", role: "admin" })
+      );
+      console.log("user");
       setSuccess(true);
-      setTimeout( () => { 
-        setSuccess((prevState)=>!prevState);
-        setFormValue("email", "password") 
-        navigate (AppRoutes.ADMIN)}, 1000)
-        
+      setTimeout(() => {
+        setSuccess((prevState) => !prevState);
+        setFormValue("email", "password");
+        navigate(AppRoutes.ADMIN);
+      }, 1000);
     } catch (e) {
       console.log(e);
     } finally {
@@ -38,11 +41,8 @@ const SignIn = () => {
     });
   };
   return (
-   
-
-   <div className={style.box}>
-       
-            <h2>Sign In</h2>
+    <div className={style.box}>
+      <h2>Sign In</h2>
       <br />
       <br />
       {!success ? (
@@ -67,9 +67,16 @@ const SignIn = () => {
             />
           </form>
           <br />
-          {/* <button onClick={handleSignUp}>Login</button> */}
+          <br />
+          <br />
+          <br />
           <ButtonToolbar>
-            <Button color="cyan" size="lg" appearance="primary" onClick={handleSignIn}>
+            <Button
+              color="cyan"
+              size="lg"
+              appearance="primary"
+              onClick={handleSignIn}
+            >
               Submit
             </Button>
           </ButtonToolbar>
@@ -78,8 +85,6 @@ const SignIn = () => {
         <h1>SUCCESS</h1>
       )}
     </div>
-   
-    
   );
 };
 export default SignIn;

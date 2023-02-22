@@ -7,16 +7,17 @@ import CV from "./MainPage/CV";
 import LogIn from "./LogIn/LogIn";
 import "rsuite/dist/rsuite.min.css";
 import "./common/Overrides-rsuite.css";
-import PrivateRoute from "./HOC/PrivateRoute";
+import PrivateRoute, { PublicRoute } from "./HOC/PrivateRoute";
 import AdminPage from "./Admin/AdminPage";
 
-function App() {
+function App() { 
+
   return (
     <div className={styles.main}>
       <Routes>
         <Route path={AppRoutes.MAIN_PAGE} element={<CV />} />
         <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
-        <Route path={AppRoutes.LOGIN} element={<PublicRoute Component={LogIn} />} />
+        <Route path={AppRoutes.LOGIN} element={<LogIn/>} />
         <Route path={AppRoutes.ADMIN} element={<PrivateRoute Component={AdminPage} />} />
       </Routes>
     </div>

@@ -4,6 +4,7 @@ import styles from "./Admin.module.css";
 import Navbar from "../Navbar/Navbar";
 import { getData } from "../Redux/dataSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CV from "../MainPage/CV";
 import {
   faCss3,
   faFigma,
@@ -143,12 +144,12 @@ const AdminPage = () => {
         });
       }
     );
-  };  
-  console.log(userFromRedux)
+  };
+  console.log(userFromRedux);
   return (
-    <div>     
-         {userFromRedux?.length > 0 &&
-          userFromRedux?.map((item) => (
+    <div>
+      {userFromRedux?.length > 0 &&
+        userFromRedux?.map((item) => (
           <div key={item.id}>
             {editID !== item.id ? (
               <>
@@ -292,8 +293,16 @@ const AdminPage = () => {
                         </div>
                       </div>
                     </div>
-                    <div className={styles.cube2}></div>
                   </div>
+                </div>
+                <div className={styles.cube2}>
+                  <button
+                    className={styles.btn}
+                    onClick={() => handleEdit(item)}
+                  >
+                    {" "}
+                    Edit
+                  </button>
                 </div>
               </>
             ) : (
@@ -624,20 +633,19 @@ const AdminPage = () => {
                         </div>
                       </div>
                     </div>
-
-                    <div className={styles.cube2}>
-                      
-                    </div>
                   </div>
+                </div>
+                <div className={styles.cube2}>
+                  <button
+                    className={styles.btn}
+                    onClick={() => handleEdit(item)}
+                  >
+                    {" "}
+                    Save
+                  </button>
                 </div>
               </>
             )}
-            <button
-              className={styles.btn}              
-              onClick={() => handleEdit(item)}
-            >
-              {editID !== item.id ? "Edit" : "Save"}
-            </button>
           </div>
         ))}
     </div>
