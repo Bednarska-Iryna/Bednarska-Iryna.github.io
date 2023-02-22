@@ -1,11 +1,11 @@
-// import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { AppRoutes, AppRedirectRoutes } from "../Route/AppRoutes";
 import { Button, ButtonToolbar } from "rsuite";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth} from "./firebase";
 import {signInWithEmailAndPassword } from "firebase/auth";
-import Navbar from "../Navbar/Navbar";
+
 
 import style from "./LogIn.module.css";
 const SignIn = () => {

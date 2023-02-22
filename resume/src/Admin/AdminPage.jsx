@@ -1,7 +1,6 @@
 import { Route } from "react-router-dom";
-// import my from "../images/my.jpg";
 import React from "react";
-import styles from ".//Admin.module.css";
+import styles from "./Admin.module.css";
 import Navbar from "../Navbar/Navbar";
 import { getData } from "../Redux/dataSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -144,13 +143,10 @@ const AdminPage = () => {
         });
       }
     );
-  };
-  // console.log(users);
+  };  
   console.log(userFromRedux)
   return (
-    <div>
-      {/* {users?.length > 0 &&
-        users?.map((item) => ( */}
+    <div>     
          {userFromRedux?.length > 0 &&
           userFromRedux?.map((item) => (
           <div key={item.id}>
@@ -629,14 +625,15 @@ const AdminPage = () => {
                       </div>
                     </div>
 
-                    <div className={styles.cube2}></div>
+                    <div className={styles.cube2}>
+                      
+                    </div>
                   </div>
                 </div>
               </>
             )}
             <button
-              className={styles.btn}
-              disabled={editID === item.id && isDisabled}
+              className={styles.btn}              
               onClick={() => handleEdit(item)}
             >
               {editID !== item.id ? "Edit" : "Save"}
